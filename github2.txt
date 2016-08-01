@@ -1,6 +1,7 @@
 Some Other Text File
 
 Even more changes 
+Change2
 
 Something added to github2.
 More Changes?
