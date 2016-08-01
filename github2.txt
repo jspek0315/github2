@@ -1,5 +1,7 @@
 Some Other Text File
 
+Even more changes 
+
 Something added to github2.
 More Changes?
 Even more changes.
