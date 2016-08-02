@@ -1,0 +1,22 @@
+img
+{
+	height:50%;
+	width:50%;
+}
+
+p{
+	font-size:25px;
+	color:red;
+}
+
+#foo{
+	color:blue;
+}
+
+#myDiv{
+	border: 5px solid black;
+}
+
+.class1{
+	color:green;
+}
