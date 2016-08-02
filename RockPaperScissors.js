@@ -28,6 +28,8 @@ function getUserInputError()
 //Obtain User Input
 userInput = getUserInput();
 
+computer = []
+
 while (userInput.toUpperCase() !== "ROCK" && userInput.toUpperCase() !== "SCISSORS" && userInput.toUpperCase() !== "PAPER" )
 {
 	userInput = getUserInputError();
