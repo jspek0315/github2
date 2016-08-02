@@ -7,16 +7,109 @@
 			Enter 'r','p', or 's' and hit enter.
 		</div>
 		<input id="promptInput" type="text"/>
+		
+		<book>
+			<title>MyTitle</title>
+			<author>LRon</author>
+			<date>11-06-1970</date>
+		</book>
+		
+
 	</body>
 	
 	<script>
-		function foo(a,b,c = 9)
-		{
-			b = b || 9;
-			console.log(a,b,c);
+	
+	var s = {
+		"glossary": {
+			"title": "example glossary",
+			"GlossDiv": {
+				"title": "S",
+				"GlossList": {
+					"GlossEntry": {
+						"ID": "SGML",
+						"SortAs": "SGML",
+						"GlossTerm": "Standard Generalized Markup Language",
+						"Acronym": "SGML",
+						"Abbrev": "ISO 8879:1986",
+						"GlossDef": {
+							"para": "A meta-markup language, used to create markup languages such as DocBook.",
+							"GlossSeeAlso": ["GML", "XML"]
+						},
+						"GlossSee": "markup"
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
+		function foo(){
+			this.a = 10;
+			this.b = 11;
+
 		}
 		
-		foo();
+		foo.prototype = {
+			x:3,
+			y:9
+		};
+		
+		var f = new foo();
+		console.log(f.a);
+		console.log(f.x);
+		
+	
+		function sum()
+		{
+			var total = 0;
+			
+			for(var i = 0; i < arguments.length; i++)
+			{
+					total += arguments[i];
+			}
+			
+			return total
+		}
+		
+		function sum2()
+		{
+			var total = 0;
+			
+			for(var i in arguments)
+			{
+					total += arguments[i];
+			}
+			
+			return total
+		}
+		
+		
+		console.log(sum2(1,2,3,4,5,6));
+		
+		var Cat = {
+			meow: function(){
+				console.log(this);
+			},
+			sleep: function(){
+			},
+			eat: function(){
+			}
+		};
+		
+		
+		var mittens = Object.create(Cat);
+		mittens.meow();
+		mittens.age = 7;
+		mittens.name = 'Mittens';
+		
+		var fluffy = Object.create(Cat);
+		fluffy.meow();
+		fluffy.age = 7;
+		fluffy.name = 'Fluffy';
+		
 		
 		var x = {ken:7,mary:'hi'}; 
 		var y = Object.create(x);
