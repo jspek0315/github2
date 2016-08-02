@@ -1,0 +1,30 @@
+<html>
+	<head>
+	</head>
+	
+	<body>
+		<div>
+			Enter 'r','p', or 's' and hit enter.
+		</div>
+		<input id="promptInput" type="text"/>
+	</body>
+	
+	<script>
+		function foo(a,b,c = 9)
+		{
+			b = b || 9;
+			console.log(a,b,c);
+		}
+		
+		foo();
+		
+		var x = {ken:7,mary:'hi'}; 
+		var y = Object.create(x);
+		var z = Object.create(y);
+		//console.log(y.ken);
+		y.ken = 10;
+		console.log(z.ken);
+		console.log(y.ken);
+		console.log(x.ken);
+	</script>
+</html>
