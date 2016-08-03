@@ -1,0 +1,26 @@
+h1{
+			color: white;
+			background-color: darkblue;
+			border-style: groove;
+			border-radius: 5px;
+			text-align: center;
+}
+
+.border1{
+	margin: 5%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+img{
+	width: 50%;
+    height: auto;
+	display: inline-block; 
+	margin: 2%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	border-color: black;
+	border-style: solid;
+	border-radius: 3px;
+}

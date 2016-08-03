@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Image Search</title>
+		<link rel="stylesheet" type="text/css" href="StylesCss.css">
+	</head>
+	<body>
+		<h1>Welcome To Image Selector</h1>
+		<h3 class="border1">This website gives a demo as to how to use an Ajax request
+			by providing a drop list of values to choose from and when
+			the user clicks the button, an Ajax request is sent and 
+			a JSON file is returned that is parsed.
+		</h3>
+		<div class="border1">
+			<p>Please select value from drop list</p>
+			<select id="userID">
+			  <option value="Alice">Alice</option>
+			  <option value="Bob">Bob</option>
+			  <option value="Carol">Carol</option>
+			  <option value="David">David</option>
+			</select>
+			<button type="button" onclick="main()">Get Image</button>
+			<div id="divID">
+				
+			</div>
+		</div>
+	</body>
+
+	<script src="requestFunctions2.js"></script>
+
+</html>
