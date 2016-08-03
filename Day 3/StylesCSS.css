@@ -13,9 +13,7 @@ h1{
 }
 
 img{
-	width: 50%;
-    height: auto;
-	display: inline-block; 
+	/*width: 50%;*/
 	margin: 2%;
 	display: block;
     margin-left: auto;
@@ -23,4 +21,9 @@ img{
 	border-color: black;
 	border-style: solid;
 	border-radius: 3px;
+}
+
+input{
+	 /*margin-left: 10%;*/
+	 margin-top: 1%;
 }
