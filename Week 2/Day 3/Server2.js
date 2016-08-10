@@ -24,21 +24,24 @@ app.get('/tweets/:id/',
 		//console.log(oJSON1.id);
 		var id = req.params.id;
 		
+		console.log(dbStuff);
 		dbStuff.getTweets(id).then
 		(
 			function(val)
 			{
-				console.log(val);
+				res.send(val);
+				dbStuff.closeDB();
 			},
 			function(err)
 			{
-				console.log(err);
+				console.log("Errored");
+				dbStuff.closeDB();
 			}
 		);
 		
 		
 		
-		res.send(id);
+		
 		
 		//res.send("JASON File");
 	}

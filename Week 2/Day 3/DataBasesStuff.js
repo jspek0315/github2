@@ -75,6 +75,7 @@ if (!dbexists) {
     });
 }
 
+closeDB();
  
  // function(err, jsonString) {}
 function getFollowersJSON(userId, callBack) {
@@ -113,6 +114,7 @@ function getFollowerTweetsJSON(userId) {
 	
 }
 
+/*
 var x = 5;
  function stringPromise(value)
 {
@@ -127,10 +129,16 @@ var x = 5;
 
 module.exports.x = 80;
 exports.stringPromise = stringPromise;
+*/
 
 function getTweets(userId) {
     return new Promise((resolve, reject) => {
-        var query = "SELECT TWEET FROM TWEET "
+        if (!db.openCalled)
+		{
+			db = new sqlite3.Database('scratch.db');
+		}
+		
+		var query = "SELECT TWEET FROM TWEET "
             + "  WHERE USERID = '" + userId + "'";
         var tweetsArr = [];
         db.serialize(() => {
@@ -157,18 +165,29 @@ function getTweets(userId) {
 
 exports.getTweets = getTweets;
 
-/*getTweets('abu').then
+/*
+getTweets('abu').then
 (
 	function(val)
 	{
 		console.log(val);
+		closeDB();
 	},
 	function(err)
 	{
 		console.log(err);
+		closeDB();
 	}
 );
-	*/
+*/
+	
+function closeDB()
+{
+	db.close();
+}
+
+exports.closeDB = closeDB;
+
 
 
 /*
@@ -179,4 +198,3 @@ getFollowersJSON('abu', function (err, jsonString) {
     console.log(jsonString);
 });
 */
-db.close();
