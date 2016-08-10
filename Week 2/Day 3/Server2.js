@@ -20,33 +20,46 @@ app.get('/newTarget',
 app.get('/tweets/:id/',
 	function(req,res)
 	{
-		//var oJSON1 = JSON.parse(req.params.toString());
-		//console.log(oJSON1.id);
 		var id = req.params.id;
 		
-		console.log(dbStuff);
 		dbStuff.getTweets(id).then
 		(
 			function(val)
 			{
-				res.send(val);
+				console.log("./public/msg.html")
+				res.send(formatListHTML(val));
 				dbStuff.closeDB();
 			},
 			function(err)
 			{
+				res.send("Something Went Wrong");
 				console.log("Errored");
 				dbStuff.closeDB();
 			}
 		);
-		
-		
-		
-		
-		
-		//res.send("JASON File");
+			
 	}
 
 );
+
+function formatListHTML(arrayList)
+{
+	var jsonObj1 = JSON.parse(arrayList);
+	
+	
+	var htmlText = "<html><head></head><body>"; 
+	htmlText += "<h1>Here is a list of tweets</h1>";
+	htmlText += "<ul>"
+	for(var i = 0; i < jsonObj1.length; i++)
+	{
+		htmlText += "<li>";
+		htmlText += jsonObj1[i].toString();
+		htmlText += "</li>";
+	}
+	
+	htmlText += "</ul></body></html>"
+	return htmlText; 
+}
 
 app.use(express.static('./public'));
 app.use(express.static('./files'));
