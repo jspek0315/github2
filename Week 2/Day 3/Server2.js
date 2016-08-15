@@ -1,5 +1,7 @@
 var express = require('express');
 var dbStuff = require('./DataBasesStuff.js');
+var reader = require('./public/ReaadWriter.js');
+
 //Here is a comment//
 var app = express();
 
@@ -26,7 +28,6 @@ app.get('/tweets/:id/',
 		(
 			function(val)
 			{
-				console.log("./public/msg.html")
 				res.send(formatListHTML(val));
 				dbStuff.closeDB();
 			},

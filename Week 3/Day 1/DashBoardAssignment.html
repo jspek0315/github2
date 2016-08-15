@@ -1,0 +1,103 @@
+<html ng-app="nameApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Dash Board Example</title>
+	    <script src=".\angular.min.js"></script>
+		<script>
+		    var nameApp = angular.module('nameApp', []);
+			nameApp.controller('NameCtrl', 
+				function ($scope)
+				{
+					
+					$scope.isValidName = true;
+					$scope.isValidEmail = true;
+					$scope.isValidWebsite = true;
+					$scope.isValidMessage = true;
+					
+					$scope.$watch('name', function(newValue, oldValue){
+						if(newValue.trim() === "")
+						{
+							$scope.isValidName = false;
+						}
+						else
+						{
+							$scope.isValidName = true;
+						}
+					});
+					
+					$scope.$watch('email', function(newValue, oldValue){
+						if(newValue.indexOf("@") === -1)
+						{
+							$scope.isValidEmail = false;
+						}
+						else
+						{
+							$scope.isValidEmail = true;
+						}
+					});
+					
+					$scope.$watch('websiteVal', function(newValue, oldValue){
+						console.log('new value is ' + newValue);
+						console.log('indexOf is' + newValue.search("http"));
+						/*if(newValue.search("http") === -1)
+						{
+							$scope.isValidWebsite = false;
+						}
+						else
+						{
+							$scope.isValidWebsite = true;
+						}
+						*/
+					});
+					
+					$scope.$watch('messageVal', function(newValue, oldValue){
+						if(newValue.trim() === "")
+						{
+							$scope.isValidMessage = false;
+						}
+						else
+						{
+							$scope.isValidMessage = true;
+						}
+					});
+					
+				}
+			);
+		</script>
+	</head>
+	<body ng-controller="NameCtrl">
+		<h1>Form 1</h1>
+		<form>
+			<h2>Contact Us</h2>
+			<div>
+				<p style="display:inline">Name</p>
+				<br>
+				<input type="textbox" ng-model="name">
+				<p ng-hide="isValidName">Name cannot be left empty</p>
+				<br ng-show="isValidName"></br>
+			</div>
+			<div>
+				<p style="display:inline">Email</p>
+				<br>
+				<input type="textbox" ng-model="email">
+				<p ng-hide="isValidEmail">Email must contain an @</p>
+				<br ng-show="isValidEmail"></br>
+			</div>
+			<div>
+				<p style="display:inline">Website</p>
+				<br>
+				<input type="textbox" ng-model="websiteVal">
+				<p ng-hide="isValidWebSite">Website must start with http:</p>
+				<br ng-show="isValidWebSite"></br>
+			</div>
+			<div>
+				<p style="display:inline">Message</p>
+				<br>
+				<input type="textarea" ng-model="messageVal">
+				<p ng-hide="isValidMessage">Message cannot be blank</p>
+				<br ng-show="isValidMessage"></br>
+			</div>
+		</form>
+		
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<html ng-app="nameApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src=".\angular.min.js"></script>
+    <script>
+      var nameApp = angular.module('nameApp', []);
+      nameApp.controller('NameCtrl', 
+		function ($scope)
+		{
+        	$scope.names = ['Wakeup', 'Drink Coffee', 'Head To Work'];
+ 
+			$scope.addToList = function(KeyEvent)
+			{
+				
+				if(KeyEvent.which !== 13)
+				{
+					$scope.names.push($scope.task);
+				}
+				
+				
+			};
+			
+			$scope.addToListEnter = function(KeyEvent)
+			{
+				//console.log(KeyEvent);
+				if(KeyEvent.which === 13)
+				{
+					console.log("Enter Was pressed");
+				}
+			}
+      	}
+ 
+		
+	);
+    </script>
+  </head>
+  <body ng-controller="NameCtrl">
+	<h1>Here is a ToDo List</h1>   
+	<form ng-submit="addToList($event)">
+		<p>Enter an item: </p>
+		<input ng-model="task" ng-keypress="addToListEnter($event)" type="text"/>
+		<input type="submit" value="Add To List">
+	</form>
+	<ul>
+      <li ng-repeat="name in names ">{{name}}</li>
+    </ul>
+  </body>
+</html>

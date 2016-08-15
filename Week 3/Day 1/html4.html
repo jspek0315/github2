@@ -1,0 +1,39 @@
+<html ng-app="movieApp">
+ <head>
+   <meta charset="utf-8">
+   <title>Day-11, Assignment1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var movieApp = angular.module('movieApp', []);
+      movieApp.controller('MovieCtrl',['$scope','$http', 
+		function (scope, http)
+		{
+	        var url = 'http://www.omdbapi.com/?t=batman&y=&plot=short&r=json';
+	        	http.get(url).success(function(data) {
+				scope.movie = data;
+      			});
+			
+			scope.searchTitle = function(scope)
+			{
+				
+			}
+			
+		}
+		]
+	  );
+
+    </script>
+  </head>
+  <body ng-controller="MovieCtrl">
+	<h1>Movie Information Page</h1>
+	
+	<form ng-submit="searchTitle($event)">
+		<p>Please Enter a movie to search for: </p>
+		<input ng-model="movieTitle" ng-keypress="addToListEnter($event)" type="text"/>
+		<input type="submit" value="Search for title">
+	</form>
+	
+	<p>Title is: {{movie.Title}}</p>
+	<p>Part two: {{grep}}</p>
+  </body>
+</html>
